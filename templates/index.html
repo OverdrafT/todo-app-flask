@@ -7,38 +7,32 @@
 {% block body %}
     <div class="row"> 
     <div class="col-md-12">
-        <h1>Todo</h1>
+        <h1>ToDo-app</h1>
     </div>
     <div class="col-md-12">
-        <form action="/" method="POST">
-            <input required type="text" name="content" id="content">
-            <input type="submit" value="Add Task" class="btn btn-outline-secondary">
+        <form action="/" method="POST" class="add-task-form">
+            <input required type="text" name="content" id="content" class="text-field">
+            <input type="submit" value="Add Task" class="btn btn-primary">
         </form>    
     </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            <span class="badge badge-secondary">Task</span>
-            <span class="badge badge-secondary">Actions</span>    
-        </div>
-        <div class="col-md-4">
-            <span class="badge badge-secondary">Task</span>
-            <span class="badge badge-secondary">Actions</span>   
-        </div>
-        <div class="col-md-4">
-            <span class="badge badge-secondary">Task</span>
-            <span class="badge badge-secondary">Actions</span>  
-        </div>
             {% for task in tasks %}
             <div class="col-md-4">
+                <div class="task-item">
+                <div class="task-text">
                 {{ task.content }}
+                </div>
+                <div class="button"> 
                 <div class="btn-group-vertical btn-group-sm" role="group" aria-label="Toolbar with button groups">
-                    <a href="delete/{{task.id}}" class="btn btn-outline-secondary">
+                    <a href="delete/{{task.id}}" class="btn btn-outline-danger">
                         Delete
                     </a>
-                    <a href="update/{{task.id}}" class="btn btn-outline-secondary">
+                    <a href="update/{{task.id}}" class="btn btn-outline-success">
                         Update
                     </a>   
+                </div>
+                </div>
                 </div>
     
             </div>
